@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schizophrenia Awareness & Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Schizophrenia Awareness & Detection</h1>
+    </header>
+
+    <div class="container">
+        <!-- HOME SECTION -->
+        <section id="home">
+            <h2>What is Schizophrenia?</h2>
+            <p>
+                Schizophrenia is a chronic mental disorder affecting a person's ability to think, feel, and behave clearly.
+                Symptoms include hallucinations, delusions, disorganized thinking, and difficulties in daily life.
+            </p>
+            <img src="{{ url_for('static', filename="schizophrenia.jpg") }}" class="diagram" alt="Schizophrenia Diagram">
+            <a href="#detection" class="button">Go to Detection</a>
+        </section>
+
+        <!-- DETECTION SECTION -->
+        <section id="detection">
+            <h2>Schizophrenia Detection</h2>
+            <form method="POST" action="{{ url_for('detection') }}">
+                <label>Age:</label>
+                <input type="number" step="any" name="Age" required>
+
+                <label>Gender (0=Male, 1=Female):</label>
+                <input type="number" name="Gender" required>
+
+                <label>Marital Status (0=Single, 1=Married):</label>
+                <input type="number" name="Marital_Status" required>
+
+                <label>Fatigue:</label>
+                <input type="number" step="any" name="Fatigue" required>
+
+                <label>Slowing:</label>
+                <input type="number" step="any" name="Slowing" required>
+
+                <label>Pain:</label>
+                <input type="number" step="any" name="Pain" required>
+
+                <label>Hygiene:</label>
+                <input type="number" step="any" name="Hygiene" required>
+
+                <label>Movement:</label>
+                <input type="number" step="any" name="Movement" required>
+
+                <button type="submit">Predict</button>
+            </form>
+
+            {% if prediction %}
+                <div class="result {% if 'Healthy' in prediction %}healthy{% else %}schizo{% endif %}">
+                    <h3>{{ prediction }}</h3>
+                    <p>{{ recommendation }}</p>
+                </div>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>

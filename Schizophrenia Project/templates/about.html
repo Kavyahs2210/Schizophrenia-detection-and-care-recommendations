@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}About - Schizophrenia Detection{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1><i class="fas fa-info-circle"></i> About This System</h1>
+    </div>
+
+    <div class="about-content">
+        <section class="about-section">
+            <h2><i class="fas fa-bullseye"></i> Purpose</h2>
+            <p>
+                This Schizophrenia Detection System is an educational tool designed to demonstrate 
+                the application of machine learning in mental health assessment. It uses multiple 
+                ML algorithms to analyze behavioral and physical indicators that may be associated 
+                with schizophrenia.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-cogs"></i> Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <h4>Python & Flask</h4>
+                    <p>Backend framework</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>TensorFlow</h4>
+                    <p>Neural network model</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Scikit-learn</h4>
+                    <p>ML algorithms (SVM, KNN, RF)</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-code"></i>
+                    <h4>REST API</h4>
+                    <p>Programmatic access</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-robot"></i> Available Models</h2>
+            <div class="models-list">
+                <div class="model-card">
+                    <h4>Random Forest (RF)</h4>
+                    <p>Ensemble learning method that operates by constructing multiple decision trees. 
+                    Recommended for balanced accuracy and interpretability.</p>
+                </div>
+                <div class="model-card">
+                    <h4>Support Vector Machine (SVM)</h4>
+                    <p>Powerful classifier that finds optimal hyperplane for separating classes. 
+                    Effective for high-dimensional data.</p>
+                </div>
+                <div class="model-card">
+                    <h4>K-Nearest Neighbors (KNN)</h4>
+                    <p>Instance-based learning algorithm that classifies based on similarity to 
+                    training examples.</p>
+                </div>
+                <div class="model-card">
+                    <h4>Neural Network (NN)</h4>
+                    <p>Deep learning model that can capture complex non-linear relationships in data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-database"></i> Input Features</h2>
+            <ul class="features-list">
+                <li><strong>Age:</strong> Patient's age (0-120 years)</li>
+                <li><strong>Gender:</strong> Male or Female</li>
+                <li><strong>Marital Status:</strong> Single or Married</li>
+                <li><strong>Fatigue:</strong> Level of tiredness (0-10 scale)</li>
+                <li><strong>Psychomotor Slowing:</strong> Reduced speed of thought and movement (0-10)</li>
+                <li><strong>Pain:</strong> Physical pain level (0-10)</li>
+                <li><strong>Hygiene:</strong> Self-care and hygiene issues (0-10)</li>
+                <li><strong>Movement:</strong> Abnormal movements or motor symptoms (0-10)</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-code"></i> API Usage</h2>
+            <p>The system provides REST API endpoints for programmatic access:</p>
+            
+            <div class="code-block">
+                <h4>Single Prediction</h4>
+                <pre><code>POST /api/predict
+Content-Type: application/json
+
+{
+  "features": {
+    "Age": 35,
+    "Gender": 0,
+    "Marital_Status": 1,
+    "Fatigue": 5.5,
+    "Slowing": 3.2,
+    "Pain": 2.1,
+    "Hygiene": 1.5,
+    "Movement": 2.8
+  },
+  "model_type": "rf"
+}</code></pre>
+            </div>
+
+            <div class="code-block">
+                <h4>Compare All Models</h4>
+                <pre><code>POST /api/compare
+Content-Type: application/json
+
+{
+  "features": {
+    "Age": 35,
+    "Gender": 0,
+    ...
+  }
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="about-section warning-section">
+            <h2><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h2>
+            <div class="disclaimer-box">
+                <p>
+                    <strong>This tool is for educational and research purposes only.</strong>
+                </p>
+                <ul>
+                    <li>It should NOT be used as the sole basis for medical diagnosis</li>
+                    <li>Always consult qualified healthcare professionals for proper evaluation</li>
+                    <li>Early detection and professional intervention are crucial for mental health</li>
+                    <li>The predictions are based on limited features and may not capture all aspects</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

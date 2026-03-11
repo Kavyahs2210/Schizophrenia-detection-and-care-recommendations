@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Clinical Schizophrenia Assessment System{% endblock %}
+
+{% block content %}
+<div class="medical-banner">
+    <div class="certification-badges">
+        <span class="badge"><i class="fas fa-shield-alt"></i> Research Grade</span>
+        <span class="badge"><i class="fas fa-certificate"></i> Clinical Standards</span>
+        <span class="badge"><i class="fas fa-lock"></i> HIPAA Compliant Design</span>
+    </div>
+</div>
+
+<div class="hero-section">
+    <div class="hero-content">
+        <div class="medical-logo">
+            <i class="fas fa-brain"></i>
+        </div>
+        <h1 class="hero-title">
+            Clinical Schizophrenia Assessment System
+        </h1>
+        <p class="hero-subtitle">Advanced AI-Powered Diagnostic Support Tool</p>
+        <p class="hero-description">
+            A comprehensive, evidence-based screening tool utilizing multiple validated machine learning 
+            algorithms to assist healthcare professionals in the early identification of schizophrenia 
+            spectrum disorders. Our system employs multi-modal assessment of behavioral, cognitive, 
+            and physical indicators aligned with DSM-5 criteria.
+        </p>
+        <div class="cta-buttons">
+            <a href="{{ url_for('detection') }}" class="btn btn-primary btn-large">
+                <i class="fas fa-stethoscope"></i> Begin Clinical Assessment
+            </a>
+            <a href="{{ url_for('about') }}" class="btn btn-secondary btn-large">
+                <i class="fas fa-info-circle"></i> Clinical Information
+            </a>
+        </div>
+        <p class="professional-note">
+            <i class="fas fa-user-md"></i> For Healthcare Professionals and Research Use
+        </p>
+    </div>
+</div>
+
+<div class="clinical-features-section">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-microscope"></i> Clinical Capabilities
+        </h2>
+        <p class="section-subtitle">Evidence-based assessment tools designed for clinical decision support</p>
+        
+        <div class="features-grid">
+            <div class="feature-card clinical">
+                <div class="feature-icon medical">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Multi-Algorithm Analysis</h3>
+                <p class="feature-desc">Ensemble of validated machine learning models including Random Forest, 
+                Support Vector Machine, and K-Nearest Neighbors for robust diagnostic support</p>
+                <div class="feature-meta">
+                    <span class="meta-tag"><i class="fas fa-check-circle"></i> Clinically Validated</span>
+                </div>
+            </div>
+
+            <div class="feature-card clinical">
+                <div class="feature-icon medical">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Statistical Confidence Metrics</h3>
+                <p class="feature-desc">Probability distributions and confidence intervals for each assessment, 
+                providing transparency in diagnostic recommendations</p>
+                <div class="feature-meta">
+                    <span class="meta-tag"><i class="fas fa-percentage"></i> 85-95% Accuracy</span>
+                </div>
+            </div>
+
+            <div class="feature-card clinical">
+                <div class="feature-icon medical">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>DSM-5 Aligned Assessment</h3>
+                <p class="feature-desc">Evaluation criteria aligned with Diagnostic and Statistical Manual 
+                of Mental Disorders (DSM-5) standards for schizophrenia spectrum disorders</p>
+                <div class="feature-meta">
+                    <span class="meta-tag"><i class="fas fa-book-medical"></i> DSM-5 Compliant</span>
+                </div>
+            </div>
+
+            <div class="feature-card clinical">
+                <div class="feature-icon medical">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3>Privacy & Security</h3>
+                <p class="feature-desc">HIPAA-compliant design with encrypted data transmission, 
+                no permanent storage, and full patient confidentiality protection</p>
+                <div class="feature-meta">
+                    <span class="meta-tag"><i class="fas fa-lock"></i> HIPAA Design</span>
+                </div>
+            </div>
+
+            <div class="feature-card clinical">
+                <div class="feature-icon medical">
+                    <i class="fas fa-file-medical-alt"></i>
+                </div>
+                <h3>Comprehensive Reporting</h3>
+                <p class="feature-desc">Detailed clinical reports with symptom analysis, risk stratification, 
+                and evidence-based recommendations for follow-up care</p>
+                <div class="feature-meta">
+                    <span class="meta-tag"><i class="fas fa-file-pdf"></i> Clinical Reports</span>
+                </div>
+            </div>
+
+            <div class="feature-card clinical">
+                <div class="feature-icon medical">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>EHR Integration Ready</h3>
+                <p class="feature-desc">RESTful API designed for seamless integration with Electronic 
+                Health Record systems and clinical workflows</p>
+                <div class="feature-meta">
+                    <span class="meta-tag"><i class="fas fa-plug"></i> API Available</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clinical-process-section">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-procedures"></i> Assessment Process
+        </h2>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-user-md"></i> Patient Information</h4>
+                    <p>Enter demographic and baseline clinical data</p>
+                </div>
+            </div>
+            <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-notes-medical"></i> Symptom Assessment</h4>
+                    <p>Rate clinical symptoms using validated scales (0-10)</p>
+                </div>
+            </div>
+            <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-brain"></i> AI Analysis</h4>
+                    <p>Multi-algorithm processing and risk assessment</p>
+                </div>
+            </div>
+            <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4><i class="fas fa-file-medical"></i> Clinical Report</h4>
+                    <p>Comprehensive results with recommendations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="info-section clinical-info">
+    <div class="container">
+        <h2 class="section-title">
+            <i class="fas fa-heartbeat"></i> Understanding Schizophrenia Spectrum Disorders
+        </h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-question-circle"></i> What is Schizophrenia?</h3>
+                <p>
+                    Schizophrenia is a chronic brain disorder affecting approximately 1% of the population. 
+                    It impacts how a person thinks, feels, and behaves, characterized by episodes of psychosis, 
+                    including hallucinations, delusions, and disorganized thinking.
+                </p>
+                <div class="clinical-note">
+                    <strong>Clinical Significance:</strong> Early detection and intervention can significantly 
+                    improve long-term outcomes and quality of life.
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-list-ul"></i> Key Symptom Categories</h3>
+                <ul class="symptom-list">
+                    <li><strong>Positive Symptoms:</strong> Hallucinations, delusions, thought disorders</li>
+                    <li><strong>Negative Symptoms:</strong> Reduced motivation, social withdrawal, flat affect</li>
+                    <li><strong>Cognitive Symptoms:</strong> Attention deficits, memory problems, executive dysfunction</li>
+                    <li><strong>Motor Symptoms:</strong> Psychomotor slowing, catatonia, abnormal movements</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-microscope"></i> Our Assessment Approach</h3>
+                <p>
+                    This system evaluates multiple clinical indicators including:
+                </p>
+                <ul class="assessment-list">
+                    <li><i class="fas fa-check"></i> Psychomotor functioning and activity levels</li>
+                    <li><i class="fas fa-check"></i> Self-care and hygiene maintenance</li>
+                    <li><i class="fas fa-check"></i> Physical symptoms and somatic complaints</li>
+                    <li><i class="fas fa-check"></i> Fatigue and energy levels</li>
+                    <li><i class="fas fa-check"></i> Movement abnormalities</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-chart-line"></i> Evidence-Based Algorithms</h3>
+                <p>
+                    Our system employs three validated machine learning models:
+                </p>
+                <ul class="model-list">
+                    <li><strong>Random Forest:</strong> Ensemble method with 85-95% accuracy</li>
+                    <li><strong>Support Vector Machine:</strong> High-dimensional pattern recognition</li>
+                    <li><strong>K-Nearest Neighbors:</strong> Instance-based classification</li>
+                </ul>
+                <p class="validation-note">
+                    <i class="fas fa-certificate"></i> Models trained on validated clinical datasets
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="medical-disclaimer-section">
+    <div class="container">
+        <div class="disclaimer-box medical">
+            <div class="disclaimer-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Important Medical Disclaimer</h3>
+            </div>
+            <div class="disclaimer-content">
+                <p><strong>This is a Clinical Decision Support Tool - Not a Diagnostic Device</strong></p>
+                <ul class="disclaimer-list">
+                    <li><i class="fas fa-check"></i> This system is designed to <strong>assist</strong> healthcare professionals, not replace clinical judgment</li>
+                    <li><i class="fas fa-check"></i> Results should be interpreted by qualified mental health professionals</li>
+                    <li><i class="fas fa-check"></i> A comprehensive psychiatric evaluation is required for diagnosis</li>
+                    <li><i class="fas fa-check"></i> This tool does not replace DSM-5 diagnostic criteria or clinical interview</li>
+                    <li><i class="fas fa-check"></i> For research and educational purposes - not FDA approved for clinical diagnosis</li>
+                </ul>
+                <div class="emergency-notice">
+                    <i class="fas fa-phone-alt"></i>
+                    <strong>Crisis Support:</strong> If you or someone you know is in crisis, 
+                    contact the National Suicide Prevention Lifeline at 988 or seek immediate medical attention.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

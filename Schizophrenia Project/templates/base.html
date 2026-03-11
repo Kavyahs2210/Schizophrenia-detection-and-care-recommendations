@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clinical Schizophrenia Assessment System - AI-powered diagnostic support tool for healthcare professionals">
+    <meta name="keywords" content="schizophrenia, mental health, clinical assessment, diagnostic tool, psychiatry">
+    <title>{% block title %}Clinical Schizophrenia Assessment System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="nav-brand">
+                <i class="fas fa-brain"></i> Clinical Assessment System
+            </a>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('home') }}" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{{ url_for('detection') }}" class="nav-link"><i class="fas fa-clipboard-list"></i> Assessment</a></li>
+                <li><a href="{{ url_for('history') }}" class="nav-link"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link"><i class="fas fa-info-circle"></i> Clinical Info</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Clinical Schizophrenia Assessment System</p>
+            <p class="disclaimer">
+                <i class="fas fa-exclamation-triangle"></i> 
+                <strong>Medical Disclaimer:</strong> This is a clinical decision support tool for healthcare professionals. 
+                Not FDA approved for diagnostic use. For research and educational purposes only.
+            </p>
+            <p class="footer-links">
+                <a href="{{ url_for('about') }}">About</a> | 
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Use</a> | 
+                <a href="#">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

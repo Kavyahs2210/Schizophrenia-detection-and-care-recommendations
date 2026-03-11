@@ -1,0 +1,70 @@
+2026-03-11 22:49:32,864 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-11 22:49:32,865 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-11 22:49:32,874 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2026-03-11 22:49:34,403 - werkzeug - WARNING -  * Debugger is active!
+2026-03-11 22:49:34,406 - werkzeug - INFO -  * Debugger PIN: 535-523-939
+2026-03-11 22:50:15,339 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:15] "GET / HTTP/1.1" 200 -
+2026-03-11 22:50:15,440 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:15] "GET /static/style.css HTTP/1.1" 200 -
+2026-03-11 22:50:16,163 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-11 22:50:24,296 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:24] "GET / HTTP/1.1" 200 -
+2026-03-11 22:50:24,514 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:50:26,807 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:26] "GET /detection HTTP/1.1" 200 -
+2026-03-11 22:50:27,107 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:50:30,522 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:30] "GET /history HTTP/1.1" 200 -
+2026-03-11 22:50:30,737 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:50:32,521 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:32] "GET /about HTTP/1.1" 200 -
+2026-03-11 22:50:32,834 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:50:32] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:51:16,091 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:51:16] "GET /history HTTP/1.1" 200 -
+2026-03-11 22:51:16,321 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:51:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:51:19,087 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:51:19] "GET /detection HTTP/1.1" 200 -
+2026-03-11 22:51:19,404 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:51:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:51:48,687 - __main__ - INFO - Prediction made: {'timestamp': '2026-03-11T22:51:48.687272', 'features': {'Age': 21.0, 'Gender': 1, 'Marital_Status': 0, 'Fatigue': 1.9, 'Slowing': 1.6, 'Pain': 2.1, 'Hygiene': 1.2, 'Movement': 3.1}, 'prediction': 4, 'confidence': 0.54, 'model': 'rf'}
+2026-03-11 22:51:48,692 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:51:48] "POST /detection HTTP/1.1" 200 -
+2026-03-11 22:51:48,710 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:51:48] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:52:05,420 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:05] "GET /history HTTP/1.1" 200 -
+2026-03-11 22:52:05,732 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:05] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:52:24,503 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:24] "GET / HTTP/1.1" 200 -
+2026-03-11 22:52:24,732 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:52:55,852 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:55] "GET /history HTTP/1.1" 200 -
+2026-03-11 22:52:56,168 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:56] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:52:58,248 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:58] "GET / HTTP/1.1" 200 -
+2026-03-11 22:52:58,476 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:52:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:53:17,304 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:17] "GET /detection HTTP/1.1" 200 -
+2026-03-11 22:53:17,618 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:17] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:53:24,341 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:24] "GET /history HTTP/1.1" 200 -
+2026-03-11 22:53:24,573 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:24] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:53:28,797 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:28] "GET /about HTTP/1.1" 200 -
+2026-03-11 22:53:29,113 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:29] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:53:30,653 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:30] "GET /detection HTTP/1.1" 200 -
+2026-03-11 22:53:30,879 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:53:46,672 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:46] "GET /detection HTTP/1.1" 200 -
+2026-03-11 22:53:46,985 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:53:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 22:59:24,467 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:59:24] "GET /detection HTTP/1.1" 200 -
+2026-03-11 22:59:24,486 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:59:24] "GET /static/style.css HTTP/1.1" 200 -
+2026-03-11 22:59:40,138 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:59:40] "GET / HTTP/1.1" 200 -
+2026-03-11 22:59:40,442 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 22:59:40] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 23:00:39,199 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:00:39] "GET /about HTTP/1.1" 200 -
+2026-03-11 23:00:39,436 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:00:39] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 23:00:52,369 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:00:52] "GET /detection HTTP/1.1" 200 -
+2026-03-11 23:00:52,683 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:00:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 23:01:43,634 - __main__ - INFO - Prediction made: {'timestamp': '2026-03-11T23:01:43.633949', 'features': {'Age': 21.0, 'Gender': 1, 'Marital_Status': 0, 'Fatigue': 4.0, 'Slowing': 6.4, 'Pain': 4.6, 'Hygiene': 3.1, 'Movement': 1.5}, 'prediction': 4, 'confidence': 0.54, 'model': 'rf'}
+2026-03-11 23:01:43,636 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:01:43] "POST /detection HTTP/1.1" 200 -
+2026-03-11 23:01:43,653 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:01:43] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 23:02:10,962 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:02:10] "GET /history HTTP/1.1" 200 -
+2026-03-11 23:02:11,276 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:02:11] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 23:02:19,423 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:02:19] "GET /about HTTP/1.1" 200 -
+2026-03-11 23:02:19,669 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:02:19] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2026-03-11 23:02:48,378 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-11 23:02:48,379 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-11 23:02:48,386 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2026-03-11 23:02:49,877 - werkzeug - WARNING -  * Debugger is active!
+2026-03-11 23:02:49,879 - werkzeug - INFO -  * Debugger PIN: 535-523-939
+2026-03-11 23:03:05,230 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:03:05] "GET / HTTP/1.1" 200 -
+2026-03-11 23:03:05,328 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:03:05] "GET /static/style.css HTTP/1.1" 200 -
+2026-03-11 23:03:05,902 - werkzeug - INFO - 127.0.0.1 - - [11/Mar/2026 23:03:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

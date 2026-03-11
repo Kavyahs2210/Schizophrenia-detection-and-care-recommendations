@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}History - Schizophrenia Detection{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1><i class="fas fa-history"></i> Prediction History</h1>
+        <p>Recent predictions from this session</p>
+    </div>
+
+    {% if history %}
+    <div class="history-table-container">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Model</th>
+                    <th>Prediction</th>
+                    <th>Confidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in history|reverse %}
+                <tr>
+                    <td>{{ entry.timestamp }}</td>
+                    <td>{{ entry.features.Age }}</td>
+                    <td>{{ 'Male' if entry.features.Gender == 0 else 'Female' }}</td>
+                    <td class="model-badge">
+                        {% if entry.model == 'rf' %}RF
+                        {% elif entry.model == 'svm' %}SVM
+                        {% elif entry.model == 'knn' %}KNN
+                        {% elif entry.model == 'nn' %}NN
+                        {% endif %}
+                    </td>
+                    <td>
+                        <span class="prediction-badge {% if entry.prediction == 0 %}badge-healthy{% else %}badge-risk{% endif %}">
+                            {{ 'Healthy' if entry.prediction == 0 else 'At Risk' }}
+                        </span>
+                    </td>
+                    <td>{{ "%.1f"|format(entry.confidence * 100) }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <i class="fas fa-inbox"></i>
+        <h3>No Predictions Yet</h3>
+        <p>Start by making a prediction on the detection page</p>
+        <a href="{{ url_for('detection') }}" class="btn btn-primary">
+            <i class="fas fa-stethoscope"></i> Go to Detection
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

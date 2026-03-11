@@ -1,0 +1,382 @@
+{% extends "base.html" %}
+
+{% block title %}Clinical Assessment - Schizophrenia Screening{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header clinical">
+        <div class="header-icon">
+            <i class="fas fa-clipboard-list"></i>
+        </div>
+        <h1>Clinical Schizophrenia Screening Assessment</h1>
+        <p class="header-subtitle">Comprehensive Multi-Domain Evaluation Tool</p>
+        <div class="assessment-info">
+            <span class="info-badge"><i class="fas fa-clock"></i> Duration: 5-10 minutes</span>
+            <span class="info-badge"><i class="fas fa-shield-alt"></i> Confidential</span>
+            <span class="info-badge"><i class="fas fa-chart-bar"></i> Evidence-Based</span>
+        </div>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-error clinical">
+        <i class="fas fa-exclamation-circle"></i>
+        <div class="alert-content">
+            <strong>Validation Error:</strong>
+            <p>{{ error }}</p>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="detection-layout">
+        <div class="form-section clinical">
+            <div class="section-header">
+                <h2><i class="fas fa-user-md"></i> Patient Assessment Form</h2>
+                <p>Please complete all fields accurately for optimal assessment</p>
+            </div>
+
+            <form method="POST" action="{{ url_for('detection') }}" id="detectionForm">
+                <!-- Algorithm Selection -->
+                <div class="form-section-group">
+                    <h3 class="group-title">
+                        <i class="fas fa-brain"></i> Assessment Algorithm
+                    </h3>
+                    <div class="algorithm-info-box">
+                        <p><strong>Select the machine learning model for analysis:</strong></p>
+                        <ul class="algorithm-list">
+                            <li><strong>Random Forest (Recommended):</strong> Best overall accuracy, ensemble method</li>
+                            <li><strong>Support Vector Machine:</strong> High precision, pattern recognition</li>
+                            <li><strong>K-Nearest Neighbors:</strong> Instance-based, interpretable results</li>
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <label for="model_type">
+                            <i class="fas fa-robot"></i> Select Assessment Algorithm:
+                        </label>
+                        <select name="model_type" id="model_type" class="form-control clinical">
+                            <option value="rf">Random Forest - Ensemble Learning (Recommended)</option>
+                            <option value="svm">Support Vector Machine - Pattern Recognition</option>
+                            <option value="knn">K-Nearest Neighbors - Instance-Based</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Demographics -->
+                <div class="form-section-group">
+                    <h3 class="group-title">
+                        <i class="fas fa-id-card"></i> Demographic Information
+                    </h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="Age">
+                                <i class="fas fa-calendar"></i> Age (years):
+                                <span class="required">*</span>
+                                <span class="range-hint">Valid range: 0-120</span>
+                            </label>
+                            <input type="number" step="any" name="Age" id="Age" class="form-control clinical" 
+                                   min="0" max="120" required placeholder="Enter patient age">
+                            <small class="field-help">Patient's current age in years</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Gender">
+                                <i class="fas fa-venus-mars"></i> Biological Sex:
+                                <span class="required">*</span>
+                            </label>
+                            <select name="Gender" id="Gender" class="form-control clinical" required>
+                                <option value="">-- Select --</option>
+                                <option value="0">Male</option>
+                                <option value="1">Female</option>
+                            </select>
+                            <small class="field-help">Biological sex assigned at birth</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Marital_Status">
+                            <i class="fas fa-ring"></i> Marital Status:
+                            <span class="required">*</span>
+                        </label>
+                        <select name="Marital_Status" id="Marital_Status" class="form-control clinical" required>
+                            <option value="">-- Select --</option>
+                            <option value="0">Single / Never Married</option>
+                            <option value="1">Married / Partnered</option>
+                        </select>
+                        <small class="field-help">Current relationship status</small>
+                    </div>
+                </div>
+
+                <!-- Clinical Symptoms -->
+                <div class="form-section-group symptoms">
+                    <h3 class="group-title">
+                        <i class="fas fa-notes-medical"></i> Clinical Symptom Assessment
+                    </h3>
+                    <div class="assessment-instructions">
+                        <p><strong>Instructions:</strong> Rate each symptom domain on a scale from 0 to 10:</p>
+                        <div class="scale-guide">
+                            <div class="scale-item">
+                                <span class="scale-value">0-2</span>
+                                <span class="scale-label">Minimal/None</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-value">3-4</span>
+                                <span class="scale-label">Mild</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-value">5-6</span>
+                                <span class="scale-label">Moderate</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-value">7-8</span>
+                                <span class="scale-label">Severe</span>
+                            </div>
+                            <div class="scale-item">
+                                <span class="scale-value">9-10</span>
+                                <span class="scale-label">Extreme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-item">
+                        <label for="Fatigue">
+                            <i class="fas fa-tired"></i> Fatigue & Energy Depletion:
+                            <span class="required">*</span>
+                        </label>
+                        <p class="symptom-description">
+                            Persistent tiredness, lack of energy, difficulty initiating activities, 
+                            reduced stamina for daily tasks
+                        </p>
+                        <div class="slider-container">
+                            <input type="range" name="Fatigue" id="Fatigue" class="form-range clinical" 
+                                   min="0" max="10" step="0.1" value="0" required>
+                            <div class="slider-labels">
+                                <span>None</span>
+                                <span class="range-value-display" id="Fatigue-value">0.0</span>
+                                <span>Extreme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-item">
+                        <label for="Slowing">
+                            <i class="fas fa-hourglass-half"></i> Psychomotor Retardation:
+                            <span class="required">*</span>
+                        </label>
+                        <p class="symptom-description">
+                            Slowed thinking, speech, and body movements; delayed responses; 
+                            reduced spontaneous activity; bradykinesia
+                        </p>
+                        <div class="slider-container">
+                            <input type="range" name="Slowing" id="Slowing" class="form-range clinical" 
+                                   min="0" max="10" step="0.1" value="0" required>
+                            <div class="slider-labels">
+                                <span>None</span>
+                                <span class="range-value-display" id="Slowing-value">0.0</span>
+                                <span>Extreme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-item">
+                        <label for="Pain">
+                            <i class="fas fa-head-side-cough"></i> Somatic Pain & Discomfort:
+                            <span class="required">*</span>
+                        </label>
+                        <p class="symptom-description">
+                            Physical pain, headaches, body aches, unexplained physical discomfort, 
+                            somatic complaints
+                        </p>
+                        <div class="slider-container">
+                            <input type="range" name="Pain" id="Pain" class="form-range clinical" 
+                                   min="0" max="10" step="0.1" value="0" required>
+                            <div class="slider-labels">
+                                <span>None</span>
+                                <span class="range-value-display" id="Pain-value">0.0</span>
+                                <span>Extreme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-item">
+                        <label for="Hygiene">
+                            <i class="fas fa-shower"></i> Self-Care & Hygiene Deficits:
+                            <span class="required">*</span>
+                        </label>
+                        <p class="symptom-description">
+                            Neglect of personal hygiene, grooming difficulties, reduced self-care activities, 
+                            appearance deterioration
+                        </p>
+                        <div class="slider-container">
+                            <input type="range" name="Hygiene" id="Hygiene" class="form-range clinical" 
+                                   min="0" max="10" step="0.1" value="0" required>
+                            <div class="slider-labels">
+                                <span>None</span>
+                                <span class="range-value-display" id="Hygiene-value">0.0</span>
+                                <span>Extreme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="symptom-item">
+                        <label for="Movement">
+                            <i class="fas fa-running"></i> Motor Abnormalities:
+                            <span class="required">*</span>
+                        </label>
+                        <p class="symptom-description">
+                            Abnormal involuntary movements, catatonic behavior, stereotyped movements, 
+                            motor restlessness, dyskinesia
+                        </p>
+                        <div class="slider-container">
+                            <input type="range" name="Movement" id="Movement" class="form-range clinical" 
+                                   min="0" max="10" step="0.1" value="0" required>
+                            <div class="slider-labels">
+                                <span>None</span>
+                                <span class="range-value-display" id="Movement-value">0.0</span>
+                                <span>Extreme</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-large clinical">
+                        <i class="fas fa-microscope"></i> Perform Clinical Analysis
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fas fa-redo"></i> Reset Form
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if prediction %}
+        <div class="results-section clinical">
+            <div class="result-card clinical {% if 'Healthy' in prediction %}result-healthy{% else %}result-warning{% endif %}">
+                <div class="result-header">
+                    <h2 class="result-title">
+                        <i class="fas fa-file-medical-alt"></i> Clinical Assessment Results
+                    </h2>
+                    <div class="result-status">{{ prediction }}</div>
+                </div>
+                
+                <div class="recommendation-box clinical">
+                    <div class="rec-header">
+                        <h3><i class="fas fa-stethoscope"></i> {{ recommendation.status }}</h3>
+                        <div class="confidence-badge">
+                            Confidence: <strong>{{ recommendation.confidence }}</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="rec-content">
+                        <div class="rec-section">
+                            <h4><i class="fas fa-info-circle"></i> Clinical Interpretation</h4>
+                            <p class="message">{{ recommendation.message }}</p>
+                        </div>
+                        
+                        <div class="rec-section">
+                            <h4><i class="fas fa-user-md"></i> Clinical Recommendations</h4>
+                            <div class="advice-box clinical">
+                                <p>{{ recommendation.advice }}</p>
+                            </div>
+                        </div>
+
+                        <div class="rec-section">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Important Notes</h4>
+                            <ul class="clinical-notes">
+                                <li>This assessment is a screening tool, not a definitive diagnosis</li>
+                                <li>Results should be reviewed by a qualified mental health professional</li>
+                                <li>Comprehensive psychiatric evaluation is required for diagnosis</li>
+                                <li>Consider patient history, context, and other clinical factors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if all_results %}
+            <div class="comparison-card clinical">
+                <h3><i class="fas fa-balance-scale"></i> Multi-Algorithm Consensus Analysis</h3>
+                <p class="comparison-desc">Comparison of results across different machine learning models</p>
+                <div class="model-results">
+                    {% for model_name, result in all_results.items() %}
+                    <div class="model-result-item clinical">
+                        <div class="model-info">
+                            <div class="model-name">
+                                {% if model_name == 'rf' %}
+                                    <i class="fas fa-tree"></i> Random Forest
+                                {% elif model_name == 'svm' %}
+                                    <i class="fas fa-project-diagram"></i> Support Vector Machine
+                                {% elif model_name == 'knn' %}
+                                    <i class="fas fa-sitemap"></i> K-Nearest Neighbors
+                                {% elif model_name == 'nn' %}
+                                    <i class="fas fa-brain"></i> Neural Network
+                                {% endif %}
+                            </div>
+                            {% if result.error %}
+                            <div class="model-error"><i class="fas fa-times-circle"></i> Unavailable</div>
+                            {% else %}
+                            <div class="model-result">
+                                <div class="model-prediction {% if result.class == 0 %}pred-healthy{% else %}pred-risk{% endif %}">
+                                    {{ 'Low Risk' if result.class == 0 else 'Elevated Risk' }}
+                                </div>
+                                <div class="model-confidence">
+                                    <i class="fas fa-chart-bar"></i> {{ "%.1f"|format(result.confidence * 100) }}%
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="consensus-note">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Clinical Note:</strong> Multiple algorithm consensus provides increased confidence 
+                    in assessment results. Discrepancies between models should be noted in clinical evaluation.
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+// Enhanced range slider functionality
+document.querySelectorAll('.form-range').forEach(slider => {
+    const valueDisplay = document.getElementById(slider.id + '-value');
+    
+    // Update display on input
+    slider.addEventListener('input', function() {
+        const value = parseFloat(this.value);
+        valueDisplay.textContent = value.toFixed(1);
+        
+        // Add visual feedback based on severity
+        const severity = getSeverityClass(value);
+        valueDisplay.className = 'range-value-display ' + severity;
+    });
+    
+    // Initialize display
+    valueDisplay.textContent = parseFloat(slider.value).toFixed(1);
+});
+
+function getSeverityClass(value) {
+    if (value <= 2) return 'severity-minimal';
+    if (value <= 4) return 'severity-mild';
+    if (value <= 6) return 'severity-moderate';
+    if (value <= 8) return 'severity-severe';
+    return 'severity-extreme';
+}
+
+// Form validation
+document.getElementById('detectionForm').addEventListener('submit', function(e) {
+    const age = document.getElementById('Age').value;
+    const gender = document.getElementById('Gender').value;
+    const marital = document.getElementById('Marital_Status').value;
+    
+    if (!age || !gender || !marital) {
+        e.preventDefault();
+        alert('Please complete all required demographic fields.');
+        return false;
+    }
+});
+</script>
+{% endblock %}
